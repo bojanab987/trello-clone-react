@@ -7,7 +7,116 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root{
+  --list-background: #d8dee8;
+  --primary-white:#fff;
+  --box-shadow:
+  2.8px 2.8px 2.2px rgba(0, 0, 0, 0.02),
+  6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028),
+  12.5px 12.5px 10px rgba(0, 0, 0, 0.035),
+  22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042),
+  41.8px 41.8px 33.4px rgba(0, 0, 0, 0.05),
+  100px 100px 80px rgba(0, 0, 0, 0.07)
+;
+ --list-shadow:
+ 1.1px 1.7px 2.1px rgba(0, 0, 0, 0.056),
+ 2.7px 4.2px 5.1px rgba(0, 0, 0, 0.081),
+ 5px 7.9px 9.6px rgba(0, 0, 0, 0.1),
+ 8.9px 14.1px 17.2px rgba(0, 0, 0, 0.119),
+ 16.7px 26.3px 32.2px rgba(0, 0, 0, 0.144),
+ 40px 63px 77px rgba(0, 0, 0, 0.2)
+;
+
+
+}
+
+html, body{
+  width:100vw;
+  overflow-x: hidden;
+}
+
+.dashboard{
+  width:100vw;
+  height: 100vh;  
+  background:#238df0;
+  padding:10px 30px;  
+}
+
+.main-title{
+  color: var(--primary-white);
+  font-style:italic;
+}
+
+.list-wrapper{
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  padding:10px;
+  background-color: var(--list-background);
+  border-radius: 5px;
+  width:310px;
+  box-shadow: var(--list-shadow);
+  
+}
+
+.list{
+  display:flex;
+  flex-direction: column;
+  gap:20px;
+  min-height: 400px;
+  flex-grow: 1;
+  max-width: 300px;
+  width: 300px;
+  background:transparent;
+}
+
+.title{
+  font-size: 20px;
+  margin: 10px;
+}
+
+.title__color-bar{
+  width: 100px;
+  height: 10px;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.card-wrapper{
+  
+  width:300px;
+  border-radius: 10px;
+  background-color: var(--primary-white);
+  margin:3px;
+  box-shadow: var(--box-shadow);
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;  
+}
+
+.card-header{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding:0 20px;
+  font-size: 14px;
+}
+
+.card-content{
+  font-size: 12px;  
+}
+
+.title-wrapper{
+  width:325px;
+  border-bottom: 1px solid #808080; 
+  border-radius: 10px; 
+  margin:-10px;
+  padding:2px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--primary-white);
+  
 }
