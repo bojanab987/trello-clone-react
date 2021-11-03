@@ -8,9 +8,11 @@ body {
 }
 
 :root{
+  --background:#238df0;
   --list-background: #d8dee8;
   --primary-white:#fff;
   --highlight:#dffc95;
+  --btn-hover:#409df5;
   --box-shadow:
   2.8px 2.8px 2.2px rgba(0, 0, 0, 0.02),
   6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028),
@@ -31,13 +33,13 @@ body {
 
 html, body{
   width:100vw;  
-  background:#238df0;
+  background:var(--background);
 }
 
 .dashboard{
   width:100vw;
   height: 100vh;  
-  background:#238df0;
+  background:var(--background);
   padding:10px 30px;  
   display: flex;
   flex-direction: row;
@@ -69,11 +71,7 @@ html, body{
 }
 
 .list{
-  display:flex;
-  flex-direction: column;
-  justify-content: space-between;  
-  min-height: 300px;
-  flex-grow: 1;
+  min-height: 300px;  
   max-width: 300px;
   width: 300px;
   background:transparent;
@@ -181,4 +179,78 @@ html, body{
 
 .close-btn:hover {
   background-color: #DCDCDC;
+}
+
+.add-card{
+  display: flex;
+  justify-self: flex-end;
+  bottom: 0px;
+  position: relative; 
+}
+
+.add-card-btn, .form-save{
+  border-radius: 5px; 
+  border:none;
+  font-size:14px;
+  height:30px;
+  margin-left: 5px;
+  margin-top:15px;
+  font-weight: 600;
+  box-shadow: var(--box-shadow);
+}
+
+.add-card-btn:hover, .form-save:hover{
+  background-color: var(--btn-hover);
+  color:var(--primary-white);
+  cursor: pointer;
+}
+
+.hidden{
+  display:none;
+}
+
+.form-header{
+  flex:1 1 90% ; 
+  width:100%;
+  justify-content: space-between;
+}
+
+.form{
+  display:flex;
+  flex-direction: column;
+  min-width:300px;
+  max-width:600px;
+  justify-content: space-between;
+  gap:20px;
+}
+
+
+.form-input-group{
+  display: flex;  
+ width: 100%; 
+ justify-content: space-between;
+}
+
+.form-save{
+  width:100px;
+  background-color: var(--background);
+  color: var(--primary-white);
+  box-shadow: var(--list-shadow);
+}
+
+.input{
+  justify-self: flex-end;
+  width:450px;
+  font-size: 16px;
+  padding:5px;
+  border-radius: 5px;
+}
+
+.input:focus{
+  outline: none;
+}
+
+.label{
+  display: flex;
+  justify-self: flex-start;
 }
