@@ -8,7 +8,7 @@ export default function Card({card,index, moveCard, status}) {
 
     const [{isDragging},drag] = useDrag(()=>({
         type:"card",
-        card:{index, ...card,},
+        card:{type:"card", ...card, index },
         collect:(monitor)=>({
             isDragging:!!monitor.isDragging(),
         }),
@@ -59,7 +59,8 @@ export default function Card({card,index, moveCard, status}) {
                 ref={ref} 
                 className="card-wrapper"
                 style={{opacity:isDragging ? 0.3 : 1}}
-                onClick={onOpen}>    
+                onClick={onOpen}
+                status={status}>    
 
                 <header className="card-header">
                     <div className="card-bar" style={{background:status.color}}></div>

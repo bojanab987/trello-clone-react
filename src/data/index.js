@@ -1,56 +1,55 @@
-const lists=[
+const statuses=[
     {
-        id:1,
+        id:0,
         status:"backlog",
         icon:"🔹",
-        color:"#3981DE",
-        cards:[]
+        color:"#3981DE",        
     },
-    {
-        id:2,
-        status:"in progress",
-        icon:"🔆️",
-        color: "#F2E624",
-        cards:[]
-    },
-    {
-        id:3,
-        status: "on hold",
-        icon: "⭕️",
-        color: "#EB5A46",
-        cards:[]
-    },
-    {
-        id:4,
-        status: "completed",
-        icon: "✅",
-        color: "#39B473",
-        cards:[]
-    },
-];
-
-const cards=[
     {
         id:1,
-        title:"Create react app",
-        content:"Create awsome app using react",
-        icon:"🔹",
-        status:"backlog"
+        status:"in progress",
+        icon:"🔆️",
+        color: "#F2E624",        
     },
     {
         id:2,
-        title:"Style components",
-        content:"Style using some of the libraries like: Material UI, Tailwind, Bootstrap...",
-        icon:"🔹",
-        status:"backlog"
+        status: "on hold",
+        icon: "⭕️",
+        color: "#EB5A46",        
     },
     {
         id:3,
-        title:"Push to GitHub",
-        content:"Make commits after changes and push it to you githug account",
-        icon:"🔹",
-        status:"backlog"
+        status: "completed",
+        icon: "✅",
+        color: "#39B473",        
     },
 ];
 
-export { lists, cards };
+const cardsData=[
+    {
+        id:0,
+        icon:"🔹",
+        status:"backlog",
+        type:"card",
+        title:"Create react app",
+        content:"Create awsome app using react",        
+    },
+    {
+        id:1,
+        icon:"🔹",
+        status:"backlog",
+        type:"card",
+        title:"Style components",
+        content:"Style using some of the libraries like: Material UI, Tailwind, Bootstrap...",        
+    },
+    {
+        id:2,
+        title:"Push to GitHub",
+        icon:"🔹",
+        status:"backlog",
+        type:"card",
+        content:"Make commits after changes and push it to you githug account",        
+    },
+];
+
+export { statuses, cardsData };
