@@ -8,9 +8,9 @@ function App() {
   return (
     <DndProvider backend={HTML5Backend}>
       <div className="App">
-      <header>
-        <h1 className="main-title">Trello</h1>
-      </header>
+        <header>
+          <h1 className="main-title">Trello</h1>
+        </header>
         <Dashboard/>
       </div>
     </DndProvider>    

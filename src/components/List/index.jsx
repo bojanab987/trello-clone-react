@@ -1,10 +1,12 @@
+const List = ({isOver, children}) =>{
+    const className = isOver ? "highlight":"";
 
-export default function List({isOver,children}){
-    const className = isOver ? "highlight" : "";
-
-    return(
-        <div className={`list ${className}`}>            
-            {children}    
+    return (
+        <div className={`list ${className}`} >
+            {console.log({children})}
+            {children}
         </div>
     )
 }
+
+export default List;

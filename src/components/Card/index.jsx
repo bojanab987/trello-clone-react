@@ -1,27 +1,31 @@
-import { useDrag, useDrop } from 'react-dnd';
-import {useState, useRef} from 'react';
-import Window from '../Window';
+import { useDrag, useDrop} from "react-dnd";
+import {Fragment, useState, useRef } from "react";
+import Window from "./../Window";
 
-export default function Card({card,index, moveCard, status}) {
+const Card = ({item, index, moveItem, status}) =>{
 
-    const ref=useRef(null);
+    const ref=useRef(null)
+    const [{isDragging}, drag] = useDrag({
+        type:"CARD",
+        item:{
+            type:"CARD",
+            ...item,
+            index
+        },
+        
+        collect: monitor => ({
+            isDragging: !!monitor.isDragging()
+        })
+    });
 
-    const [{isDragging},drag] = useDrag(()=>({
-        type:"card",
-        card:{type:"card", ...card, index },
-        collect:(monitor)=>({
-            isDragging:!!monitor.isDragging(),
-        }),
-    }));
-
-    const [,drop]=useDrop({
-        accept:"card",
-        hover(card,monitor){
+    const [,drop] = useDrop({
+        accept:"CARD",
+        hover(item,monitor) {
             if(!ref.current){
                 return;
             }
 
-            const dragIndex=card.index;
+            const dragIndex=item.index;
             const hoverIndex = index;
 
             if(dragIndex===hoverIndex){
@@ -33,46 +37,47 @@ export default function Card({card,index, moveCard, status}) {
             const mousePosition = monitor.getClientOffset();
             const hoverClientY = mousePosition.y - hoveredRect.top;
 
-            // {if dragIndex is less then hoverIndex we dont  move card}
+            // {if dragIndex is less then hoverIndex we dont  move item}
             if (dragIndex < hoverIndex && hoverClientY < hoverMiddleY) {
                 return;
             }
-            //and if its greater we dont move card
+
             if (dragIndex > hoverIndex && hoverClientY > hoverMiddleY) {
                 return;
             }
-
-            moveCard(dragIndex, hoverIndex);
-            card.index=hoverIndex;
+            moveItem(dragIndex, hoverIndex);
+            item.index = hoverIndex;
         }
     });
 
-    const [showCard, setShowCard] = useState(false);
-    const onOpen = () => setShowCard(true);
-    const onClose = () => setShowCard(false);
+    const [showCardContent,setShowCardContent]=useState(false);
+    const onOpen = () => setShowCardContent(true);
+    const onClose=()=> setShowCardContent(false);
 
-    drag(drop(ref));
-
+    drag(drop(ref));    
     return (
-        <div>
-            <div 
-                ref={ref} 
-                className="card-wrapper"
-                style={{opacity:isDragging ? 0.3 : 1}}
+        <Fragment>
+            <div
+                className={"card-wrapper"}
+                ref={ref}
+                style={{opacity: isDragging ? 0.3 : 1}}
                 onClick={onOpen}
-                status={status}>    
-
+                >
                 <header className="card-header">
-                    <div className="card-bar" style={{background:status.color}}></div>
-                    <h3>{card.title}</h3>
-                    <i>{card.icon}</i>
-                </header>            
-                <p className="card-content">{card.content}</p>
+                    <div className={"card-bar"} style={{background: status.color}} />
+                    <h3 className={"card-title"}>{item.title}</h3>
+                    <p className={"card-status"}>{item.icon}</p>
+                </header>
+                
+                <p className={"card-content"}>{item.content}</p>
+                
             </div>
             <Window
-                card={card}
+                item={item}
                 onClose={onClose}
-                show={showCard}/>
-        </div>
+                show={showCardContent}/>
+        </Fragment>
     )
 };
+
+export default Card;
