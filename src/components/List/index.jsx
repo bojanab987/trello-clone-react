@@ -1,8 +1,10 @@
 import Title from './Title'
-export default function List({children}){
+
+export default function List({isOver,children}){
+    const className = isOver ? "highlight" : "";
 
     return(
-        <div className="list">
+        <div className={`list ${className}`}>
             <Title />
             {children}    
         </div>
